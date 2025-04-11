@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufacturer's Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .company-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .company-list li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .company-list li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .company-list li a:hover {
+            color: #007BFF;
+        }
+        .company-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .company-details h2 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>List of Manufacturers</h1>
+
+    <!-- Company list -->
+    <ul class="company-list">
+        <li><a href="#" onclick="showDetails('a')">Hk.Inno.N Corporation</a></li>
+    </ul>
+
+    <!-- Company details (hidden by default) -->
+    <div id="companyDetails" class="company-details">
+        <h2 id="companyName"></h2>
+        <p><strong>Country:</strong> <span id="country"></span></p>
+        <p><strong>Website:</strong> <a href="#" id="website" target="_blank"></a></p>
+        <p><strong>Contact Person:</strong> <span id="contactPerson"></span></p>
+        <p><strong>Contact Email:</strong> <span id="contactEmail"></span></p>
+        <p><strong>Contact Number:</strong> <span id="contactNumber"></span></p>
+        <p><strong>PIC/S Accreditation:</strong> <span id="accreditationStatus"></span></p>
+        <p><strong>Accrediting RDRA(s):</strong> <span id="accreditingRDRA"></span></p>
+        <p><strong>Accreditation Validity:</strong> <span id="accreditationValidity"></span></p>
+        <p><strong>Accredited Product Lines/Workshops:</strong> <span id="productLines"></span></p>
+        <p><strong>List of Accredited Products:</strong> <span id="accreditedProducts"></span></p>
+        <p><strong>Brochure or Full Product List:</strong> <a href="#" id="brochure" target="_blank">Download</a></p>
+    </div>
+</div>
+
+<script>
+    // Data for Company A
+    const companyData = {
+        "a": {
+            name: "Hk.Inno.N Corporation",
+            country: "South Korea",
+            website: "https://www.inno-n.com/eng",
+            contactPerson: "Chris Kim",
+            contactEmail: "ck@hkinno.com",
+            contactNumber: "+82 021 227 19",
+            accreditationStatus: "Yes",
+            accreditingRDRA: "South Korea",
+            accreditationValidity: "2027-10-11",
+            productLines: "Non Sterile Oral Line (Tablets, Capsules, Soft Gel)",
+            accreditedProducts: "All products",
+            brochureLink: "https://drive.google.com/open?id=12UUaDD3_gzsU..."
+        }
+    };
+
+    // Function to show company details
+    function showDetails(companyId) {
+        const details = companyData[companyId];
+
+        // Update the page with the company details
+        document.getElementById('companyName').innerText = details.name;
+        document.getElementById('country').innerText = details.country;
+        document.getElementById('website').innerText = details.website;
+        document.getElementById('website').href = details.website;
+        document.getElementById('contactPerson').innerText = details.contactPerson;
+        document.getElementById('contactEmail').innerText = details.contactEmail;
+        document.getElementById('contactNumber').innerText = details.contactNumber;
+        document.getElementById('accreditationStatus').innerText = details.accreditationStatus;
+        document.getElementById('accreditingRDRA').innerText = details.accreditingRDRA;
+        document.getElementById('accreditationValidity').innerText = details.accreditationValidity;
+        document.getElementById('productLines').innerText = details.productLines;
+        document.getElementById('accreditedProducts').innerText = details.accreditedProducts;
+        document.getElementById('brochure').href = details.brochureLink;
+
+        // Show the details section
+        document.getElementById('companyDetails').style.display = "block";
+    }
+</script>
+
+</body>
+</html>
